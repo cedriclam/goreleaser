@@ -196,6 +196,7 @@ type Checksum struct {
 
 // Docker image config
 type Docker struct {
+	Name        string   `yaml:",omitempty"`
 	Binary      string   `yaml:",omitempty"`
 	Goos        string   `yaml:",omitempty"`
 	Goarch      string   `yaml:",omitempty"`

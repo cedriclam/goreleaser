@@ -127,7 +127,7 @@ func tagName(ctx *context.Context, docker config.Docker) (string, error) {
 
 func process(ctx *context.Context, docker config.Docker, artifact artifact.Artifact) error {
 	var root = filepath.Dir(artifact.Path)
-	var dockerfile = filepath.Join(root, filepath.Base(docker.Dockerfile))
+	var dockerfile = filepath.Join(root, strings.Join([]string{filepath.Base(docker.Dockerfile), docker.Name}, "."))
 	tag, err := tagName(ctx, docker)
 	if err != nil {
 		return err
